@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE data SYSTEM "http://www.woltlab.com/DTDs/eventListeners.dtd">
+<data>
+	<import>
+		<eventlistener>
+			<eventclassname>UserPage</eventclassname>
+			<eventname>assignVariables</eventname>
+			<listenerclassfile>lib/system/event/listener/UserProfileBanListener.class.php</listenerclassfile>
+			<environment>user</environment>
+		</eventlistener>
+	</import>
+</data>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE language SYSTEM "DTD/language.dtd">
+<language languagecode="en">
+	<category name="wcf.user.profile">
+		<item name="wcf.user.profile.userprofileban"><![CDATA[Ban user]]></item>
+		<item name="wcf.user.profile.userprofileunban"><![CDATA[Unban user]]></item>
+	</category>
+</language>

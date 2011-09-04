@@ -25,7 +25,7 @@ class UserProfileBanAction extends AbstractSecureAction {
 		//get user data
 		if (isset($_REQUEST['userID']) && isset($_REQUEST['banReason'])) { 
 			$this->userID = intval($_REQUEST['userID']);
-			$this->banReason = escapeString($_REQUEST['banReason']));
+			$this->banReason = escapeString($_REQUEST['banReason']);
 		} else {
 			throw new IllegalLinkException();
 		}

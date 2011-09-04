@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE language SYSTEM "DTD/language.dtd">
-<language languagecode="en">
+<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/language.xsd" languagecode="en">
 	<category name="wcf.user.profile">
 		<item name="wcf.user.profile.userprofileban"><![CDATA[Ban user]]></item>
+		<item name="wcf.user.profile.userprofilebanreason"><![CDATA[Optional: Provide a reason for the ban. The entered reason is shown to the banned user after login.]]></item>
 		<item name="wcf.user.profile.userprofileunban"><![CDATA[Unban user]]></item>
 	</category>
 </language>

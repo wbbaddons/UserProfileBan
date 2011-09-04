@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE language SYSTEM "DTD/language.dtd">
-<language languagecode="de-informal">
+<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/language.xsd" languagecode="de-informal">
 	<category name="wcf.user.profile">
 		<item name="wcf.user.profile.userprofileban"><![CDATA[Benutzer sperren]]></item>
+		<item name="wcf.user.profile.userprofilebanreason"><![CDATA[Optional: Gib einen Grund für die Sperre des Benutzeraccounts an. Dieser Grund wird dem gesperrten Benutzer angezeigt.]]></item>
 		<item name="wcf.user.profile.userprofileunban"><![CDATA[Benutzer entsperren]]></item>
 	</category>
 </language>

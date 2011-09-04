@@ -7,7 +7,7 @@
 		<packagedescription>Adds a "Ban user/Unban user" link to the user profile select menu</packagedescription>
 		<packagedescription language="de"><![CDATA[Fügt dem Dropdown-Menü im Benutzerprofil einen "Benutzer sperren/entsperren"-Link hinzu]]></packagedescription>
 		<packagedescription language="de-informal"><![CDATA[Fügt dem Dropdown-Menü im Benutzerprofil einen "Benutzer Sperren/entsperren"-Link hinzu]]></packagedescription>
-		<version>1.0.2/version>
+		<version>1.0.2</version>
 		<date>2011-09-04</date>
 		<isunique>1</isunique>
 		<plugin>com.woltlab.wcf.page.user.profile</plugin>

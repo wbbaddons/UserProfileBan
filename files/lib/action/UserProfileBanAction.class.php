@@ -7,13 +7,14 @@ require_once(WCF_DIR.'lib/system/session/Session.class.php');
 /**
  * Bans the User 
  * 
- * @author	Martin Schwendowius (Sani9000)
- * @copyright	2010 WoltLab Community
- * @license	GNU Lesser General Public License <http://www.gnu.org/licenses/lgpl.html>
- * @package	com.woltlab.community.profileban
+ * @author		Martin Schwendowius (Sani9000)
+ * @copyright	2010 - 2011 wbbaddons.de
+ * @license		Creative Commons Attribution-NoDerivs 3.0 Unported (CC BY-ND 3.0) <http://http://creativecommons.org/licenses/by-nd/3.0/deed.en>
+ * @package		com.woltlab.community.profileban
  */
 class UserProfileBanAction extends AbstractSecureAction {
 	protected $userID;
+	protected $banReason;
 	
 	/**
 	 * @see AbstractSecureAction::readParameters()
@@ -21,14 +22,15 @@ class UserProfileBanAction extends AbstractSecureAction {
 	public function readParameters() {
 		parent::readParameters();
 		
-		//get userID
-		if (isset($_REQUEST['userID'])) { 
+		//get user data
+		if (isset($_REQUEST['userID']) && isset($_REQUEST['banReason'])) { 
 			$this->userID = intval($_REQUEST['userID']);
+			$this->banReason = escapeString($_REQUEST['banReason']));
 		} else {
 			throw new IllegalLinkException();
 		}
 		
-		//check admin permission and protect the admin not to ban himself...
+		//check admin permission and protect the admin not to ban himself from the system
 		if (!WCF::getUser()->getPermission('admin.user.canBanUser') || WCF::getUser()->userID == $this->userID) {
 			throw new PermissionDeniedException();
 		}
@@ -43,8 +45,8 @@ class UserProfileBanAction extends AbstractSecureAction {
 		
 		// check accessible group permissions
 		$sql = "SELECT	DISTINCT groupID
-			FROM	wcf".WCF_N."_user_to_groups
-			WHERE	userID = ".$this->userID;
+				FROM	wcf".WCF_N."_user_to_groups
+				WHERE	userID = ".$this->userID;
 		$result = WCF::getDB()->sendQuery($sql);
 		while ($row = WCF::getDB()->fetchArray($result)) {
 			if (!Group::isAccessibleGroup($row['groupID'])) {
@@ -54,8 +56,9 @@ class UserProfileBanAction extends AbstractSecureAction {
 		
 		// ban user
 		$sql = "UPDATE	wcf".WCF_N."_user
-			SET	banned = 1
-			WHERE	userID = ".$this->userID;
+				SET	banned = 1,
+				banReason = '".$this->banReason."'
+				WHERE	userID = ".$this->userID;
 		WCF::getDB()->sendQuery($sql);
 		
 		// reset session of the banned user
@@ -68,4 +71,3 @@ class UserProfileBanAction extends AbstractSecureAction {
 		exit;
 	}
 }
-?>

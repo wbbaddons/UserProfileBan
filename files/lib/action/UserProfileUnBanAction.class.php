@@ -7,10 +7,10 @@ require_once(WCF_DIR.'lib/system/session/Session.class.php');
 /**
  * Unbans the User 
  * 
- * @author	Martin Schwendowius (Sani9000)
- * @copyright	2010 WoltLab Community
- * @license	GNU Lesser General Public License <http://www.gnu.org/licenses/lgpl.html>
- * @package	com.woltlab.community.profileban
+ * @author		Martin Schwendowius (Sani9000)
+ * @copyright	2010 - 2011 wbbaddons.de
+ * @license		Creative Commons Attribution-NoDerivs 3.0 Unported (CC BY-ND 3.0) <http://http://creativecommons.org/licenses/by-nd/3.0/deed.en>
+ * @package		com.woltlab.community.profileban
  */
 class UserProfileUnBanAction extends AbstractSecureAction {
 	protected $userID;
@@ -43,8 +43,8 @@ class UserProfileUnBanAction extends AbstractSecureAction {
 		
 		// check accessible group permissions
 		$sql = "SELECT	DISTINCT groupID
-			FROM	wcf".WCF_N."_user_to_groups
-			WHERE	userID = ".$this->userID;
+				FROM	wcf".WCF_N."_user_to_groups
+				WHERE	userID = ".$this->userID;
 		$result = WCF::getDB()->sendQuery($sql);
 		while ($row = WCF::getDB()->fetchArray($result)) {
 			if (!Group::isAccessibleGroup($row['groupID'])) {
@@ -54,8 +54,9 @@ class UserProfileUnBanAction extends AbstractSecureAction {
 		
 		// unban user
 		$sql = "UPDATE	wcf".WCF_N."_user
-			SET	banned = 0
-			WHERE	userID = ".$this->userID;
+				SET	banned = 0,
+				banReason = ''
+				WHERE	userID = ".$this->userID;
 		WCF::getDB()->sendQuery($sql);
 	
 		// reset session of the user
@@ -68,4 +69,3 @@ class UserProfileUnBanAction extends AbstractSecureAction {
 		exit;
 	}
 }
-?>

@@ -9,7 +9,7 @@
 	var promptResult = prompt(language['wcf.user.profile.userprofilebanreason']);
 	function banTheUser (id) {
 		if (typeof(promptResult) != 'object' && typeof(promptResult) != 'undefined') {
-			document.location.href = fixURL('index.php?action=UserProfileBan&&userID='+userID+'&reason='+encodeURIComponent(promptResult)+'&t='+SECURITY_TOKEN+SID_ARG_2ND);
+			document.location.href = fixURL('index.php?action=UserProfileBan&userID='+id+'&reason='+encodeURIComponent(promptResult)+'&t='+SECURITY_TOKEN+SID_ARG_2ND);
 		}
 	}
 	//]]>

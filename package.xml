@@ -20,7 +20,7 @@
 
 	<requiredpackages>
 		<requiredpackage minversion="1.1.6">com.woltlab.wcf.page.user.profile</requiredpackage>
-		<requiredPackage minversion="1.1.8">com.woltlab.wcf</requiredPackage>
+		<requiredpackage minversion="1.1.8">com.woltlab.wcf</requiredpackage>
 	</requiredpackages>
 
 	<instructions type="install">
